@@ -2,15 +2,19 @@
 Creating a simple hangman game 
 
 
-##Overview 
+## Overview 
 
 Link to game: https://rweems-hangman.netlify.com/
 
-##Technology used
+## Technology Used
 
 Trello Link: https://trello.com/b/669qlMRH/hangman
+
+
 Wireframe 
+
+
 whiteboard
 
 
-##Future Development
+## Future Development
