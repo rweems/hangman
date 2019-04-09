@@ -2,25 +2,34 @@
 
 
 // create arrays for topics
-currentMovies = ['us','shazam','dumbo','captain marvel','pet sematary',
+let currentMovies = ['us','shazam','dumbo','captain marvel','pet sematary',
                 'the public','wonder park'];
 
-topAnime = ['the promised neverland', 'one punch man', 'dororo','mob psycho',
+let topAnime = ['the promised neverland', 'one punch man', 'dororo','mob psycho',
                 'demon slayer', 'fullmetal alchemist','steins gate' ];
 
 
-htmlWords = ['head','title','body','doctype','tag','href','src'];
+let htmlWords = ['head','title','body','doctype','tag','href','src'];
 
-cssWords = ['selector','property','id','class','color','flexbox','border'];
+let cssWords = ['selector','property','id','class','color','flexbox','border'];
 
-jsWords = ['innerhtml','getelementsbyid','document','let','function','object',
+let jsWords = ['innerhtml','getelementsbyid','document','let','function','object',
             'array'];
 
-jqueryWords = ['click','fadein','fadeout','slidedown','callback','chaining','addclass'];
+let jqueryWords = ['click','fadein','fadeout','slidedown','callback','chaining','addclass'];
 
-console.log(currentMovies);
-console.log(topAnime);
-console.log(htmlWords);
-console.log(cssWords);
-console.log(jsWords);
-console.log(jqueryWords);
+function createGame()
+{
+    let chosenTopic = prompt('Please enter a number from 1 - 6 to choose a topic.' 
+                        + '\n1. HTML'
+                        + '\n2. CSS'
+                        + '\n3. JS'
+                        + '\n4. Jquery'
+                        + '\n5. Current Movies'
+                        + '\n6. Top Anime');
+
+
+    console.log(chosenTopic);
+}
+
+createGame();
