@@ -1,4 +1,4 @@
-# hangman
+# Hangman
 Creating a simple hangman game 
 
 
