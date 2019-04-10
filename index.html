@@ -2,16 +2,32 @@
 <html lang="en">
 <head>
     <title>Hangman</title>
+    <script src="jquery-3.3.1.min.js"></script>
     <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <div id="board">
         <h1>Crowd Surf Hangman</h1>
-        <div class="game"></div>
-        <div class="gameInfo"></div>
+
+        <div class="game">
+
+        </div>
+
+        <div class="gameInfo">
+            <div id="blanks">
+            </div>
+
+            <div id="guessArea">
+                <input id="guessText" type="text" placeholder="Enter guess">
+                <button id="enterGuess">Enter</button>
+                <p>Guesses: </p>
+                <p>Wins: </p>
+            </div>
+            
+        </div>
 
 
     </div>
-<script src="main.js"></script>
+<script defer src="main.js"></script>
 </body>
 </html>
