@@ -70,7 +70,7 @@ function startGame(wordToGuess)
 {
     guessArr = [];
     wrongGuess = [];
-    
+    alreadyGuessed = [];
     for(i = 0; i < (wordToGuess.length + 1); i++)
     {
         if(wordToGuess[i] === ' ')
@@ -92,30 +92,39 @@ function checkGuess(word)
 
     let lettersLeft = word.length;
     let life = 6;
-    while(lettersLeft > 0){
-        for(i = 0; i < word.length; i++)
-        {
-            
-            if(userGuess() === word[i] )
+    if(alreadyGuessed.includes(userGuess())){
+        alert('Letter has already been selected, pick a new letter');
+    }
+    else if(!isNaN(userGuess()))
+    {
+        alert('Please enter a letter');
+    }
+    else{
+        while(lettersLeft > 0){
+            for(i = 0; i < word.length; i++)
             {
-                guessArr[i] = userGuess();
                 
-                lettersLeft -= 1;
-            }
-            else if(!userGuess() === word[i])
-            {
-                life = life - 1;
-                wrongGuess.push(userGuess());
-                
-            }
+                if(userGuess() === word[i] )
+                {
+                    guessArr[i] = userGuess();
+                    
+                    lettersLeft -= 1;
+                }
+                else if(!userGuess() === word[i])
+                {
+                    life = life - 1;
+                    wrongGuess.push(userGuess());
+                    
+                }
 
-            //console.log(userGuess());
-            //console.log(wrongGuess);
+                //console.log(userGuess());
+                //console.log(wrongGuess);
+                
+                //console.log(lettersLeft);
+            }
+            console.log(guessArr);
             
-            //console.log(lettersLeft);
         }
-        console.log(guessArr);
-        
     }
     
     
