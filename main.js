@@ -14,7 +14,7 @@ let jqueryWords = ['click','fadein','fadeout','slidedown','callback','chaining',
 let currentMovies = ['us','shazam','dumbo','captain marvel','pet sematary',
                 'the public','wonder park'];
 
- topAnime = ['the promised neverland', 'one punch man', 'dororo','mob psycho',
+let topAnime = ['the promised neverland', 'one punch man', 'dororo','mob psycho',
                 'demon slayer', 'fullmetal alchemist','steins gate' ];
 
 
@@ -61,10 +61,76 @@ function randomWord(topicArray)
     
 
     //https://css-tricks.com/snippets/javascript/select-random-item-array/
-    let hiddenWord = topicArray[Math.floor(Math.random() * topicArray.length)];
+    hiddenWord = topicArray[Math.floor(Math.random() * topicArray.length)];
     console.log(hiddenWord);
+    startGame(hiddenWord);
 }
 
+function startGame(wordToGuess)
+{
+    guessArr = [];
+    wrongGuess = [];
+    
+    for(i = 0; i < (wordToGuess.length + 1); i++)
+    {
+        if(wordToGuess[i] === ' ')
+            guessArr.push('-');
+        else
+            guessArr.push('_ ');
+    }
 
+    console.log(guessArr);
+    $('#blanks').append(guessArr);
+}
 
-createGame();
+function lifeReduction(){
+    return console.log(life-=1);
+}
+
+function checkGuess(word)
+{
+
+    let lettersLeft = word.length;
+    let life = 6;
+    while(lettersLeft > 0){
+        for(i = 0; i < word.length; i++)
+        {
+            
+            if(userGuess() === word[i] )
+            {
+                guessArr[i] = userGuess();
+                
+                lettersLeft -= 1;
+            }
+            else if(!userGuess() === word[i])
+            {
+                life = life - 1;
+                wrongGuess.push(userGuess());
+                
+            }
+
+            //console.log(userGuess());
+            //console.log(wrongGuess);
+            
+            //console.log(lettersLeft);
+        }
+        console.log(guessArr);
+        
+    }
+    
+    
+}
+
+const userGuess = () => {return $('#guessText').val();}
+
+$(function()
+{
+    
+    $('#enterGuess').on('click',function(event){
+        
+        checkGuess(hiddenWord);
+    });
+
+    createGame();
+});
+
