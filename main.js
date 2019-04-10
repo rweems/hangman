@@ -71,7 +71,7 @@ function startGame(wordToGuess)
     guessArr = [];
     wrongGuess = [];
     alreadyGuessed = [];
-    for(i = 0; i < (wordToGuess.length + 1); i++)
+    for(i = 0; i < wordToGuess.length; i++)
     {
         if(wordToGuess[i] === ' ')
             guessArr.push('-');
@@ -108,11 +108,12 @@ function checkGuess(word)
                 {
                     guessArr[i] = userGuess();
                     
-                    lettersLeft -= 1;
+                    
+                    lettersLeft--;
                 }
                 else if(!userGuess() === word[i])
                 {
-                    life = life - 1;
+                    //life--;
                     wrongGuess.push(userGuess());
                     
                 }
@@ -130,6 +131,31 @@ function checkGuess(word)
     
 }
 
+function gameWin()
+{
+    alert('Congratulations, you won');
+    let tryAgain = prompt('Try again?');
+    if(tryAgain === 'y' || tryAgain === 'yes')
+    {
+        createGame();
+    }
+    else{
+        window.close();
+    }
+}
+
+function gameLose()
+{
+    let tryAgain = prompt('Sorry you ran out of lives, try again?');
+    if(tryAgain === 'y' || tryAgain === 'yes')
+    {
+        createGame();
+    }
+    else{
+        window.close();
+    }
+}
+
 const userGuess = () => {return $('#guessText').val();}
 
 $(function()
@@ -138,6 +164,7 @@ $(function()
     $('#enterGuess').on('click',function(event){
         
         checkGuess(hiddenWord);
+        
     });
 
     createGame();
