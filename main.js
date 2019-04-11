@@ -68,13 +68,16 @@ function randomWord(topicArray)
 
 function startGame(wordToGuess)
 {
+    lettersLeft = wordToGuess.length;
+    life = 6;
     guessArr = [];
     wrongGuess = [];
     alreadyGuessed = [];
+
     for(i = 0; i < wordToGuess.length; i++)
     {
         if(wordToGuess[i] === ' ')
-            guessArr.push('-');
+            guessArr.push(' ');
         else
             guessArr.push('_ ');
     }
@@ -90,8 +93,8 @@ function lifeReduction(){
 function checkGuess(word)
 {
 
-    let lettersLeft = word.length;
-    let life = 6;
+    
+    
     if(alreadyGuessed.includes(userGuess())){
         alert('Letter has already been selected, pick a new letter');
     }
@@ -100,20 +103,18 @@ function checkGuess(word)
         alert('Please enter a letter');
     }
     else{
-        while(lettersLeft > 0){
-            for(i = 0; i < word.length; i++)
+        if(lettersLeft > 0){
+            for(j = 0; j < word.length; j++)
             {
                 
-                if(userGuess() === word[i] )
+                if(userGuess() === word[j] )
                 {
-                    guessArr[i] = userGuess();
-                    
-                    
+                    guessArr[j] = userGuess();
                     lettersLeft--;
                 }
-                else if(!userGuess() === word[i])
+                else if(!userGuess() === word[j])
                 {
-                    //life--;
+                    life--;
                     wrongGuess.push(userGuess());
                     
                 }
@@ -124,6 +125,7 @@ function checkGuess(word)
                 //console.log(lettersLeft);
             }
             console.log(guessArr);
+            console.log(lettersLeft);
             
         }
     }
