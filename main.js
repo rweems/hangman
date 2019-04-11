@@ -103,6 +103,7 @@ function checkGuess(word)
         alert('Please enter a letter');
     }
     else{
+        
         if(lettersLeft > 0){
             for(j = 0; j < word.length; j++)
             {
@@ -124,6 +125,7 @@ function checkGuess(word)
                 
                 //console.log(lettersLeft);
             }
+            
             console.log(guessArr);
             console.log(lettersLeft);
             
@@ -163,7 +165,8 @@ const userGuess = () => {return $('#guessText').val();}
 $(function()
 {
     
-    $('#enterGuess').on('click',function(event){
+    
+    $('#enterGuess').on('click',function(){
         
         checkGuess(hiddenWord);
         
