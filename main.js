@@ -1,6 +1,3 @@
-
-
-
 // create arrays for topics
 let htmlWords = ['head','title','body','doctype','tag','href','src'];
 
@@ -108,26 +105,42 @@ function checkGuess(word)
                 if(userGuess() === word[j] )
                 {
                     guessArr[j] = userGuess();
-                    
                     lettersLeft--;
-                    update();
+                    updateDisplay();
+                    if(guessArr.join('') === word)
+                    {
+                        gameWin();
+                    }
                     
                 }
+                
+                else if(!userGuess() === word[j])
+                {
+        
+                    wrongGuess.push(userGuess());
+                    life--;
+                    $('#guesses').append(userGuess());
+                    
+                        
+                }
+                
+
+                //console.log(userGuess());
+                //console.log(wrongGuess);
+                
+                //console.log(lettersLeft);
             }
             
             console.log(guessArr);
             console.log(lettersLeft);
             console.log(life);
-            
-        }
 
-        if(guessArr === word)
-        {
-            gameWin();
-        }
-        else if(life === 0)
-        {
-          gameLose();
+            /*
+            else if(life === 0)
+            {
+              gameLose();
+            }*/
+            
         }
         
     }
@@ -135,19 +148,23 @@ function checkGuess(word)
     
 }
 
-function update()
+//update display
+function updateDisplay()
 {
     $('#blanks').empty();
     $('#blanks').append(guessArr);
-    document.getElementById('guessText').value = '';
+    //document.getElementById('guessText').value = '';
 }
 
+//function for winning a game 
 function gameWin()
 {
     alert('Congratulations, you won');
+    $('#blanks').empty();
     let tryAgain = prompt('Try again?');
     if(tryAgain === 'y' || tryAgain === 'yes')
     {
+        
         createGame();
     }
     else{
@@ -155,11 +172,15 @@ function gameWin()
     }
 }
 
+//function for losing a game
 function gameLose()
 {
     let tryAgain = prompt('Sorry you ran out of lives, try again?');
+    $('#blanks').empty();
+
     if(tryAgain === 'y' || tryAgain === 'yes')
     {
+       
         createGame();
     }
     else{
@@ -167,7 +188,9 @@ function gameLose()
     }
 }
 
+//get users guess
 const userGuess = () => {return $('#guessText').val();}
+
 
 $(function()
 {
@@ -181,4 +204,3 @@ $(function()
 
     createGame();
 });
-
