@@ -117,8 +117,10 @@ function checkGuess(word)
                 {
                     life--;
                     wrongGuess.push(userGuess());
-                    
+                    $('#guesses').append(userGuess());
+                        
                 }
+                
 
                 //console.log(userGuess());
                 //console.log(wrongGuess);
