@@ -16,6 +16,12 @@ let topAnime = ['the promised neverland', 'one punch man', 'dororo','mob psycho'
 
 
 
+
+
+
+
+
+
 function createGame()
 {
     
@@ -113,33 +119,24 @@ function checkGuess(word)
                     }
                     
                 }
-                
-                else if(!userGuess() === word[j])
+
+                else if(userGuess() !== word[j])
                 {
-        
-                    wrongGuess.push(userGuess());
-                    life--;
-                    $('#guesses').append(userGuess());
-                    
+                    if(!wrongGuess.includes(userGuess())){
+                        wrongGuess.push(userGuess());
                         
+                        life--;
+                        
+                    }
+  
                 }
                 
-
-                //console.log(userGuess());
-                //console.log(wrongGuess);
-                
-                //console.log(lettersLeft);
             }
             
             console.log(guessArr);
             console.log(lettersLeft);
             console.log(life);
-
-            /*
-            else if(life === 0)
-            {
-              gameLose();
-            }*/
+            console.log('wrong guess arr: ' + wrongGuess);
             
         }
         
@@ -153,8 +150,11 @@ function updateDisplay()
 {
     $('#blanks').empty();
     $('#blanks').append(guessArr);
+
+
     //document.getElementById('guessText').value = '';
 }
+
 
 //function for winning a game 
 function gameWin()
@@ -175,7 +175,7 @@ function gameWin()
 //function for losing a game
 function gameLose()
 {
-    let tryAgain = prompt('Sorry you ran out of lives, try again?');
+    let tryAgain = prompt('Sorry you ran out of lives, try again?').toLowerCase();
     $('#blanks').empty();
 
     if(tryAgain === 'y' || tryAgain === 'yes')
