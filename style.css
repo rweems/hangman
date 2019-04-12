@@ -1,0 +1,32 @@
+
+
+body
+{
+    color:#b55400;
+}
+div#board
+{
+    background-color: #222831;
+    margin: 30px;
+    display: flex;
+    height: 100vh;
+    flex-flow: column;
+}
+
+h1{
+    text-align: center;
+    color: #b55400;
+}
+
+div.game{
+
+}
+
+div.gameInfo{
+    background-color: #eaeaea;
+    width: 95.5vw;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    
+}
