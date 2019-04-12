@@ -24,9 +24,18 @@ div.game{
 
 div.gameInfo{
     background-color: #eaeaea;
-    width: 95.5vw;
+    margin: 20px;
+    padding: 20px;
+    width: 90.5vw;
     display: flex;
     flex-flow: column;
     align-items: center;
     
 }
+
+.letterGuessed{
+    background-color: grey;
+    
+}
+
+
