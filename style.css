@@ -18,9 +18,6 @@ h1{
     color: #b55400;
 }
 
-div.game{
-
-}
 
 div.gameInfo{
     background-color: #eaeaea;
@@ -30,11 +27,6 @@ div.gameInfo{
     display: flex;
     flex-flow: column;
     align-items: center;
-    
-}
-
-.letterGuessed{
-    background-color: grey;
     
 }
 
