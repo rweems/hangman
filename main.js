@@ -108,40 +108,26 @@ function checkGuess(word)
                 if(userGuess() === word[j] )
                 {
                     guessArr[j] = userGuess();
+                    
                     lettersLeft--;
                     update();
                     
                 }
-                else if(!userGuess() === word[j])
-                {
-        
-                    wrongGuess.push(userGuess());
-                    life--;
-                    $('#guesses').append(userGuess());
-                    
-                        
-                }
-                
-
-                //console.log(userGuess());
-                //console.log(wrongGuess);
-                
-                //console.log(lettersLeft);
             }
             
             console.log(guessArr);
             console.log(lettersLeft);
             console.log(life);
-
-            if(guessArr === word)
-            {
-                gameWin();
-            }
-            else if(life === 0)
-            {
-              gameLose();
-            }
             
+        }
+
+        if(guessArr === word)
+        {
+            gameWin();
+        }
+        else if(life === 0)
+        {
+          gameLose();
         }
         
     }
@@ -153,6 +139,7 @@ function update()
 {
     $('#blanks').empty();
     $('#blanks').append(guessArr);
+    document.getElementById('guessText').value = '';
 }
 
 function gameWin()
