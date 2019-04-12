@@ -7,12 +7,12 @@ let htmlWords = ['head','title','body','doctype','tag','href','src'];
 let cssWords = ['selector','property','id','class','color','flexbox','border'];
 
 let jsWords = ['innerhtml','getelementsbyid','document','let','function','object',
-            'array'];
+                'array'];
 
 let jqueryWords = ['click','fadein','fadeout','slidedown','callback','chaining','addclass'];
 
 let currentMovies = ['us','shazam','dumbo','captain marvel','pet sematary',
-                'the public','wonder park'];
+                    'the public','wonder park'];
 
 let topAnime = ['the promised neverland', 'one punch man', 'dororo','mob psycho',
                 'demon slayer', 'fullmetal alchemist','steins gate' ];
@@ -86,9 +86,6 @@ function startGame(wordToGuess)
     $('#blanks').append(guessArr);
 }
 
-function lifeReduction(){
-    return console.log(life-=1);
-}
 
 function checkGuess(word)
 {
@@ -112,12 +109,16 @@ function checkGuess(word)
                 {
                     guessArr[j] = userGuess();
                     lettersLeft--;
+                    update();
+                    
                 }
                 else if(!userGuess() === word[j])
                 {
-                    life--;
+        
                     wrongGuess.push(userGuess());
+                    life--;
                     $('#guesses').append(userGuess());
+                    
                         
                 }
                 
@@ -130,11 +131,28 @@ function checkGuess(word)
             
             console.log(guessArr);
             console.log(lettersLeft);
+            console.log(life);
+
+            if(guessArr === word)
+            {
+                gameWin();
+            }
+            else if(life === 0)
+            {
+              gameLose();
+            }
             
         }
+        
     }
     
     
+}
+
+function update()
+{
+    $('#blanks').empty();
+    $('#blanks').append(guessArr);
 }
 
 function gameWin()
