@@ -16,8 +16,8 @@ let topAnime = ['the promised neverland', 'one punch man', 'dororo','mob psycho'
 
 
 
-
-
+let alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s',
+                't','u','v','w','x','y','z'];
 
 
 
@@ -75,7 +75,6 @@ function startGame(wordToGuess)
     life = 6;
     guessArr = [];
     wrongGuess = [];
-    alreadyGuessed = [];
 
     for(i = 0; i < wordToGuess.length; i++)
     {
@@ -90,59 +89,37 @@ function startGame(wordToGuess)
 }
 
 
-function checkGuess(word)
+function checkGuess(word, letter)
 {
-
     
-    
-    if(alreadyGuessed.includes(userGuess())){
-        alert('Letter has already been selected, pick a new letter');
-    }
-    else if(!isNaN(userGuess()))
-    {
-        alert('Please enter a letter');
-    }
-    else{
-        
-        if(lettersLeft > 0){
-            for(j = 0; j < word.length; j++)
+    if(lettersLeft > 0){
+        for(j = 0; j < word.length; j++)
+        {
+                
+            if(letter !== word[j] && !wrongGuess.includes(letter))
             {
-                
-                if(userGuess() === word[j] )
-                {
-                    guessArr[j] = userGuess();
-                    lettersLeft--;
-                    updateDisplay();
-                    if(guessArr.join('') === word)
-                    {
-                        gameWin();
-                    }
-                    
-                }
-
-                else if(userGuess() !== word[j])
-                {
-                    if(!wrongGuess.includes(userGuess())){
-                        wrongGuess.push(userGuess());
-                        
-                        life--;
-                        
-                    }
-  
-                }
-                
+                wrongGuess.push(letter);         
+                life = life - 1;
+                if(life === 0)
+                    gameLose();
             }
-            
-            console.log(guessArr);
-            console.log(lettersLeft);
-            console.log(life);
-            console.log('wrong guess arr: ' + wrongGuess);
-            
-        }
-        
+            else if(letter === word[j] )
+            {
+                guessArr[j] = letter;
+                lettersLeft--;
+                updateDisplay();
+                if(guessArr.join('') === word)
+                    gameWin();
+                
+                    
+            }
+
+           
+                
+        }  
+        console.log(life);   
     }
-    
-    
+        
 }
 
 //update display
@@ -151,8 +128,6 @@ function updateDisplay()
     $('#blanks').empty();
     $('#blanks').append(guessArr);
 
-
-    //document.getElementById('guessText').value = '';
 }
 
 
@@ -188,19 +163,166 @@ function gameLose()
     }
 }
 
-//get users guess
-const userGuess = () => {return $('#guessText').val();}
 
 
 $(function()
 {
-    
-    
-    $('#enterGuess').on('click',function(){
-        
-        checkGuess(hiddenWord);
-        
-    });
-
     createGame();
+});
+
+$('#a').on('click',function()
+{
+    checkGuess(hiddenWord,'a');
+    //https://api.jquery.com/prop/
+    $(this).prop('disabled', true);
+});
+
+$('#b').on('click',function()
+{
+    checkGuess(hiddenWord,'b');
+    $(this).prop('disabled', true);
+});
+
+$('#c').on('click',function()
+{
+    checkGuess(hiddenWord,'c');
+    $(this).prop('disabled', true);
+});
+
+$('#d').on('click',function()
+{
+    checkGuess(hiddenWord,'d');
+    $(this).prop('disabled', true);
+});
+
+$('#e').on('click',function()
+{
+    checkGuess(hiddenWord,'e');
+    $(this).prop('disabled', true);
+});
+
+$('#f').on('click',function()
+{
+    checkGuess(hiddenWord,'f');
+    $(this).prop('disabled', true);
+});
+
+$('#g').on('click',function()
+{
+    checkGuess(hiddenWord,'g');
+    $(this).prop('disabled', true);
+});
+
+$('#h').on('click',function()
+{
+    checkGuess(hiddenWord,'h');
+    $(this).prop('disabled', true);
+});
+
+$('#i').on('click',function()
+{
+    checkGuess(hiddenWord,'i');
+    $(this).prop('disabled', true);
+});
+
+$('#j').on('click',function()
+{
+    checkGuess(hiddenWord,'j');
+    $(this).prop('disabled', true);
+});
+
+$('#k').on('click',function()
+{
+    checkGuess(hiddenWord,'k');
+    $(this).prop('disabled', true);
+});
+
+$('#l').on('click',function()
+{
+    checkGuess(hiddenWord,'l');
+    $(this).prop('disabled', true);
+});
+
+$('#m').on('click',function()
+{
+    checkGuess(hiddenWord,'m');
+    $(this).prop('disabled', true);
+});
+
+$('#n').on('click',function()
+{
+    checkGuess(hiddenWord,'n');
+    $(this).prop('disabled', true);
+});
+
+$('#o').on('click',function()
+{
+    checkGuess(hiddenWord,'o');
+    $(this).prop('disabled', true);
+});
+
+$('#p').on('click',function()
+{
+    checkGuess(hiddenWord,'p');
+    $(this).prop('disabled', true);
+});
+
+$('#q').on('click',function()
+{
+    checkGuess(hiddenWord,'q');
+    $(this).prop('disabled', true);
+});
+
+$('#r').on('click',function()
+{
+    checkGuess(hiddenWord,'r');
+    $(this).prop('disabled', true);
+});
+
+$('#s').on('click',function()
+{
+    checkGuess(hiddenWord,'s');
+    $(this).prop('disabled', true);
+});
+
+$('#t').on('click',function()
+{
+    checkGuess(hiddenWord,'t');
+    $(this).prop('disabled', true);
+});
+
+$('#u').on('click',function()
+{
+    checkGuess(hiddenWord,'u');
+    $(this).prop('disabled', true);
+});
+
+$('#v').on('click',function()
+{
+    checkGuess(hiddenWord,'v');
+    $(this).prop('disabled', true);
+});
+
+$('#w').on('click',function()
+{
+    checkGuess(hiddenWord,'w');
+    $(this).prop('disabled', true);
+});
+
+$('#x').on('click',function()
+{
+    checkGuess(hiddenWord,'x');
+    $(this).prop('disabled', true);
+});
+
+$('#y').on('click',function()
+{
+    checkGuess(hiddenWord,'y');
+    $(this).prop('disabled', true);
+});
+
+$('#z').on('click',function()
+{
+    checkGuess(hiddenWord,'z');
+    $(this).prop('disabled', true);
 });
