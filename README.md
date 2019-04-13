@@ -18,6 +18,8 @@ Vanilla JavaScript
 
 jQuery
 
+Figma - wireframe
+
 
 Stykz
 
