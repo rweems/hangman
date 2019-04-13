@@ -19,7 +19,7 @@ h1{
 }
 
 div.game{
-    margin:30px;
+    margin:30px 30px 0 30px;
     background-color: #eaeaea;
     padding:20px;
     
@@ -30,9 +30,10 @@ div.game{
 
 div.gameInfo{
     background-color: #eaeaea;
-    margin: 20px;
+    margin: 10px 30px 30px 30px;
     padding: 20px;
-    width: 90.5vw;
+    height: 300px;
+    width: 89.5vw;
     display: flex;
     flex-flow: column;
     justify-content: center;
