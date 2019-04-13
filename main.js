@@ -19,31 +19,32 @@ let topAnime = ['the promised neverland', 'one punch man', 'dororo','mob psycho'
 let alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s',
                 't','u','v','w','x','y','z'];
 
+
+
 let imgArr = new Array();
-imgArr[0] = new Image(550,350);
-imgArr[0].src = 'images/hangman1.png';
+imgArr[6] = new Image(550,350);
+imgArr[6].src = 'images/hangman1.png';
 
-imgArr[1] = new Image();
-imgArr[1].src = 'images/hangman2.png';
+imgArr[5] = new Image(550,350);
+imgArr[5].src = 'images/hangman2.png';
 
-imgArr[2] = new Image();
-imgArr[2].src = 'images/hangman3.png';
+imgArr[4] = new Image(550,350);
+imgArr[4].src = 'images/hangman3.png';
 
-imgArr[3] = new Image();
+imgArr[3] = new Image(550,350);
 imgArr[3].src = 'images/hangman4.png';
 
-imgArr[4] = new Image();
-imgArr[4].src = 'images/hangman5.png';
+imgArr[2] = new Image(550,350);
+imgArr[2].src = 'images/hangman5.png';
 
-imgArr[5] = new Image();
-imgArr[5].src = 'images/hangman6.png';
+imgArr[1] = new Image(550,350);
+imgArr[1].src = 'images/hangman6.png';
 
-imgArr[6] = new Image();
-imgArr[6].src = 'images/hangman7.png';
-
-
+imgArr[0] = new Image(550,350);
+imgArr[0].src = 'images/hangman7.png';
 
 
+let topicStr;
 
 function createGame()
 {
@@ -60,21 +61,27 @@ function createGame()
     {
         case '1':
             randomWord(htmlWords);
+            topicStr = 'HTML';
             break;
         case '2':
             randomWord(cssWords);
+            topicStr = 'CSS';
             break;
         case '3':
             randomWord(jsWords);
+            topicStr = 'JavaScript';
             break;
         case '4': 
             randomWord(jqueryWords);
+            topicStr = 'jQuery';
             break;
         case '5':
             randomWord(currentMovies);
+            topicStr = 'Current Movies';
             break;
         case '6':
             randomWord(topAnime);
+            topicStr = 'Top Anime';
             break;
         default:
             return 'sorry try again';
@@ -94,8 +101,9 @@ function randomWord(topicArray)
 
 function startGame(wordToGuess)
 {
+    
     lettersLeft = wordToGuess.length;
-    life = 0;
+    life = 6;
     guessArr = [];
     wrongGuess = [];
 
@@ -108,7 +116,9 @@ function startGame(wordToGuess)
     }
 
     console.log(guessArr);
+    
     $('#blanks').append(guessArr);
+    
 }
 
 
@@ -118,16 +128,8 @@ function checkGuess(word, letter)
     if(lettersLeft > 0){
         for(j = 0; j < word.length; j++)
         {
-                
-            if(letter !== word[j] && !wrongGuess.includes(letter))
-            {
-                wrongGuess.push(letter);         
-                life++;
-                updateImg(life);
-                if(life === 6)
-                    gameLose();
-            }
-            else if(letter === word[j] )
+ 
+            if(letter === word[j] )
             {
                 guessArr[j] = letter;
                 lettersLeft--;
@@ -138,9 +140,17 @@ function checkGuess(word, letter)
                     
             }
 
-           
+            // add to life counter
+            else if(word.indexOf(letter) === -1 && !wrongGuess.includes(letter))
+            {
+                wrongGuess.push(letter);         
+                life--;
+                updateImg(life);
+                if(life === 0)
+                    gameLose();
+            }
                 
-        }  
+        } 
         console.log(life);   
     }
         
@@ -169,7 +179,7 @@ function gameWin()
     let tryAgain = prompt('Try again?');
     if(tryAgain === 'y' || tryAgain === 'yes')
     {
-        
+       
         createGame();
     }
     else{
@@ -185,7 +195,7 @@ function gameLose()
 
     if(tryAgain === 'y' || tryAgain === 'yes')
     {
-       
+        
         createGame();
     }
     else{
@@ -198,7 +208,9 @@ function gameLose()
 $(function()
 {
     createGame();
-    $('.game').append(imgArr[0]);
+    $('.game').append(topicStr);
+   
+    $('.game').append(imgArr[6]);
 
 });
 
