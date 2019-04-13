@@ -19,6 +19,29 @@ let topAnime = ['the promised neverland', 'one punch man', 'dororo','mob psycho'
 let alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s',
                 't','u','v','w','x','y','z'];
 
+let imgArr = new Array();
+imgArr[0] = new Image(550,350);
+imgArr[0].src = 'images/hangman1.png';
+
+imgArr[1] = new Image();
+imgArr[1].src = 'images/hangman2.png';
+
+imgArr[2] = new Image();
+imgArr[2].src = 'images/hangman3.png';
+
+imgArr[3] = new Image();
+imgArr[3].src = 'images/hangman4.png';
+
+imgArr[4] = new Image();
+imgArr[4].src = 'images/hangman5.png';
+
+imgArr[5] = new Image();
+imgArr[5].src = 'images/hangman6.png';
+
+imgArr[6] = new Image();
+imgArr[6].src = 'images/hangman7.png';
+
+
 
 
 
@@ -72,7 +95,7 @@ function randomWord(topicArray)
 function startGame(wordToGuess)
 {
     lettersLeft = wordToGuess.length;
-    life = 6;
+    life = 0;
     guessArr = [];
     wrongGuess = [];
 
@@ -99,8 +122,9 @@ function checkGuess(word, letter)
             if(letter !== word[j] && !wrongGuess.includes(letter))
             {
                 wrongGuess.push(letter);         
-                life = life - 1;
-                if(life === 0)
+                life++;
+                updateImg(life);
+                if(life === 6)
                     gameLose();
             }
             else if(letter === word[j] )
@@ -120,6 +144,12 @@ function checkGuess(word, letter)
         console.log(life);   
     }
         
+}
+
+function updateImg(num)
+{
+    $('.game').empty();
+    $('.game').append(imgArr[num]);
 }
 
 //update display
@@ -168,7 +198,14 @@ function gameLose()
 $(function()
 {
     createGame();
+    $('.game').append(imgArr[0]);
+
 });
+
+
+
+
+
 
 $('#a').on('click',function()
 {
