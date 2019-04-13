@@ -16,7 +16,10 @@ CSS
 Vanilla JavaScript
 
 
-Jquery
+jQuery
+
+
+Stykz
 
 
 Trello Link: https://trello.com/b/669qlMRH/hangman
@@ -25,7 +28,13 @@ Trello Link: https://trello.com/b/669qlMRH/hangman
 Wireframe 
 
 
-whiteboard
+![wireframe] (images/hangman_wireframe.png)
+
+
+Whiteboarding
+
+
+![whiteboard] (images/hangman_whiteboard.jpg)
 
 
 ## Future Development
