@@ -18,6 +18,11 @@ h1{
     color: #b55400;
 }
 
+div.game{
+    margin:30px;
+    background-color: #eaeaea;
+    padding:20px;
+}
 
 div.gameInfo{
     background-color: #eaeaea;
@@ -26,6 +31,7 @@ div.gameInfo{
     width: 90.5vw;
     display: flex;
     flex-flow: column;
+    justify-content: center;
     align-items: center;
     
 }
