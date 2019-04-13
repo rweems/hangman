@@ -22,6 +22,10 @@ div.game{
     margin:30px;
     background-color: #eaeaea;
     padding:20px;
+    
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
 }
 
 div.gameInfo{
