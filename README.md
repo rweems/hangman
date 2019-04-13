@@ -28,13 +28,13 @@ Trello Link: https://trello.com/b/669qlMRH/hangman
 Wireframe 
 
 
-![wireframe] (images/hangman_wireframe.png)
+![wireframe](images/hangman_wireframe.png)
 
 
 Whiteboarding
 
 
-![whiteboard] (images/hangman_whiteboard.jpg)
+![whiteboard](images/hangman_whiteboard.jpg)
 
 
 ## Future Development
