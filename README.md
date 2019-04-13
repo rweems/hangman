@@ -34,7 +34,7 @@ Wireframe
 Whiteboarding
 
 
-![whiteboard](images/hangman_whiteboard.jpg)
+![whiteboard](images/hangman_whiteboard.png)
 
 
 ## Future Development
