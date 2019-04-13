@@ -41,7 +41,4 @@ Whiteboarding
 Add total number of wins for the player/scoreboard
 
 
-Add a way to keep progress during hangman game
-
-
 Add Themes to the game
