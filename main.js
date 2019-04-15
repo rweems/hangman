@@ -116,7 +116,6 @@ function startGame(wordToGuess) {
 
 }
 
-
 function checkGuess(word, letter) {
 
     if (lettersLeft > 0) {
@@ -160,13 +159,14 @@ function updateDisplay() {
 }
 
 
-//function for winning a game 
+//function for winning a game
 function gameWin() {
     alert('Congratulations, you won');
     $('#blanks').empty();
     let tryAgain = prompt('Try again?');
     if (tryAgain === 'y' || tryAgain === 'yes') {
-
+        $('.game').empty();
+        $('.game').append(imgArr[6]);
         createGame();
     }
     else {
@@ -176,11 +176,12 @@ function gameWin() {
 
 //function for losing a game
 function gameLose() {
-    let tryAgain = prompt('Sorry you ran out of lives, try again?').toLowerCase();
+    let tryAgain = prompt('Sorry you ran out of lives, try again?');
     $('#blanks').empty();
 
     if (tryAgain === 'y' || tryAgain === 'yes') {
-
+        $('.game').empty();
+        $('.game').append(imgArr[6]);
         createGame();
     }
     else {
