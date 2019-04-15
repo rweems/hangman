@@ -1,8 +1,8 @@
 # Hangman
-Creating a simple hangman game using the technology covered in class. 
-
 
 ## Overview 
+Creating a simple hangman game using the technology covered in class. 
+
 
 Link to game: https://rweems-hangman.netlify.com/
 
