@@ -1,7 +1,7 @@
 # Hangman - Project 1 for General Assembly(Atlanta)
 
 ## Overview 
-For project 1 I created a simple hangman game using the technology and languages covered in class. I also used some software that would allow me to add some personal touches such as Stykz for mac. 
+For project 1, I created a simple hangman game using the technology and languages covered in class. I also used some software that would allow me to add some personal touches such as Stykz for mac. 
 
 
 Link to game: https://rweems-hangman.netlify.com/
